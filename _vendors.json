@@ -1,0 +1,15 @@
+{
+	"fonts": [
+		"src/fonts/**",
+		"bower_components/mdi/fonts/**",
+		"bower_components/font-awesome/webfonts/**",
+		"bower_components/linearicons/dist/web-font/fonts/**"
+	],
+	"js": [
+		"node_modules/pixi.js/dist/pixi.js"
+	],
+	"css": [
+		"bower_components/swiper/package/css/swiper.css",
+		"bower_components/select2/dist/css/select2.css"
+	]
+}

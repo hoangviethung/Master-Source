@@ -1,0 +1,65 @@
+.blur-up {
+	filter    : blur(10px);
+	transition: filter 1s;
+
+	&.lazy-loaded {
+		filter: blur(0);
+	}
+}
+
+.pt-70 {
+	padding-top: 70px;
+
+	@media (max-width: 1199.98px) {
+		padding-top: 50px;
+	}
+
+	@media (max-width: 768px) {
+		padding-top: 30px;
+	}
+}
+
+.pb-70 {
+	padding-bottom: 70px;
+
+	@media (max-width: 1199.98px) {
+		padding-bottom: 50px;
+	}
+
+	@media (max-width: 768px) {
+		padding-bottom: 30px;
+	}
+}
+
+.pd-70 {
+	padding-top   : 70px;
+	padding-bottom: 70px;
+
+	@media (max-width: 1199.98px) {
+		padding-top   : 50px;
+		padding-bottom: 50px;
+	}
+
+	@media (max-width: 768px) {
+		padding-top   : 30px;
+		padding-bottom: 30px;
+	}
+}
+
+// Forms
+.form-control {
+	padding: 7px 15px;
+	resize : none;
+
+	&.bd-input {
+		border: 1px solid #707070;
+	}
+
+	&.bdr-input {
+		border-radius: 10px;
+	}
+
+	&.line-height-45 {
+		line-height: 45px;
+	}
+}

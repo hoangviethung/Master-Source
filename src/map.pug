@@ -1,0 +1,34 @@
+extends _components/_layout/_layout.pug
+
+block var
+	- let title = 'Map';
+	- let bodyClass = 'map-page';
+
+block banner,breadcrumb
+block main
+	.map-wrapper
+		.row.no-gutters
+			.col-lg-3
+				.dealer-locator-list
+					.list
+			.col-lg-9
+				#map
+block scripts
+	script.
+		var locationsInput = [
+			{
+				lat: 10.1251,
+				lng: 11.125,
+				title: 'Home',
+				address: '134/8A, Trần Bá Giao, Q.Gò Vấp, Tp. HCM',
+				phone: '0914.633.990'
+			},
+			{
+				lat: 10.1251,
+				lng: 10.120,
+				title: 'Company',
+				address: '192/68, Nguyễn Oanh, Q.Gò Vấp, TP.HCM',
+				phone: '0905.010.115'
+			}
+		]
+	script(type="text/javascript", src="./js/map.min.js")

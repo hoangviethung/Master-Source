@@ -1,0 +1,147 @@
+[hidden],
+.d-n,
+.hidden {
+	display: none !important;
+}
+
+.dekstop {
+	@media (max-width: 1024px) {
+		display: none;
+	}
+}
+
+.mobile {
+	@media (min-width: 1025px) {
+		display: none;
+	}
+}
+
+.d-b {
+	display: block;
+}
+
+.d-ib {
+	display: inline-block;
+}
+
+.d-f {
+	display: flex;
+}
+
+.d-if {
+	display: inline-flex;
+}
+
+.fw-w {
+	flex-wrap: wrap;
+}
+
+.ai-c {
+	align-items: center;
+}
+
+.as-c {
+	align-self: center;
+}
+
+.jc-c {
+	justify-content: center;
+}
+
+.jc-fe {
+	justify-content: flex-end;
+}
+
+.jc-spa {
+	justify-content: space-between;
+}
+
+.fcc {
+	display        : flex;
+	justify-content: center;
+	align-items    : center;
+}
+
+// List, ul, ol, dl
+.lst-n {
+	list-style-type: none;
+}
+
+// Padding
+.pl-0 {
+	padding-left: 0;
+}
+
+// Margin
+.ml-at {
+	margin-left: auto;
+}
+
+.mr-at {
+	margin-right: auto;
+}
+
+.mx-at {
+	margin-right: auto;
+	margin-left : auto;
+}
+
+.bd-0 {
+	border: 0;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.w-50 {
+	width: 50%;
+}
+
+.bd-main {
+	border: 1px solid map-get($mau, main);
+}
+
+.ov-h {
+	overflow: hidden;
+}
+
+.fw-300 {
+	font-weight: 300;
+}
+
+.fw-400 {
+	font-weight: 400;
+}
+
+.fw-700 {
+	font-weight: 700;
+}
+
+.fs-i {
+	font-style: italic;
+}
+
+.tt-u {
+	text-transform: uppercase;
+}
+
+.tt-c {
+	text-transform: capitalize;
+}
+
+.ta-c {
+	text-align: center;
+}
+
+.ta-r {
+	text-align: center;
+}
+
+.op-50 {
+	opacity: 50%;
+}
+
+.td-u {
+	text-decoration: underline;
+}
