@@ -28,7 +28,7 @@ const cssTask = () => {
 				cascade: false,
 			}),
 			cssSort({
-				order: 'concentric-css',
+				order: 'smacss',
 			}),
 		]))
 		.pipe(cleanCSS({

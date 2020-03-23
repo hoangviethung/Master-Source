@@ -25,7 +25,7 @@ const cssCore = () => {
 				cascade: false,
 			}),
 			cssSort({
-				order: 'concentric-css',
+				order: 'smacss',
 			}),
 		]))
 		.pipe(cleanCSS({

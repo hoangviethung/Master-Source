@@ -6,13 +6,13 @@
 
 .dekstop {
 	@media (max-width: 1024px) {
-		display: none;
+		display: none !important;
 	}
 }
 
 .mobile {
 	@media (min-width: 1025px) {
-		display: none;
+		display: none !important;
 	}
 }
 
@@ -23,7 +23,6 @@
 .d-ib {
 	display: inline-block;
 }
-
 
 .d-f {
 	display: flex;
@@ -61,7 +60,7 @@
 	justify-content: flex-end;
 }
 
-.jc-spa {
+.jc-sb {
 	justify-content: space-between;
 }
 
@@ -74,11 +73,6 @@
 // List, ul, ol, dl
 .lst-n {
 	list-style-type: none;
-}
-
-// Padding
-.pl-0 {
-	padding-left: 0;
 }
 
 // Margin
@@ -95,24 +89,8 @@
 	margin-left: auto;
 }
 
-.bd-0 {
-	border: 0;
-}
-
 .ov-h {
 	overflow: hidden;
-}
-
-.fw-300 {
-	font-weight: 300;
-}
-
-.fw-400 {
-	font-weight: 400;
-}
-
-.fw-700 {
-	font-weight: 700;
 }
 
 .fs-i {
@@ -133,8 +111,4 @@
 
 .td-u {
 	text-decoration: underline;
-}
-
-.op-50 {
-	opacity: 50%;
 }

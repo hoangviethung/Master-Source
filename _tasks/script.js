@@ -17,8 +17,8 @@ const jsTask = () => {
 	return browserify({
 			basedir: '.',
 			entries: ['src/js/main.js'],
-			debug: true,
-			sourceMaps: true
+			debug: false,
+			sourceMaps: false
 		})
 		.transform(babelify.configure({
 			presets: ["@babel/preset-env"],
@@ -35,9 +35,7 @@ const jsTask = () => {
 			console.log(err);
 			this.emit('end');
 		}))
-		.pipe(sourcemap.init({
-			loadMaps: true
-		}))
+		.pipe(sourcemap.init())
 		.pipe(uglifyES())
 		.pipe(rename({
 			suffix: ".min"
@@ -49,15 +47,14 @@ const jsTask = () => {
 const jsTask2 = () => {
 	return src([
 			'src/js/**.js',
-			'!src/js/main.js'
+			'!src/js/main.js',
+			'!src/js/core.js',
 		])
 		.pipe(plumber(function(err) {
 			console.log(err);
 			this.emit('end');
 		}))
-		.pipe(sourcemap.init({
-			loadMaps: true
-		}))
+		.pipe(sourcemap.init())
 		.pipe(babel())
 		.pipe(uglify())
 		.pipe(rename({

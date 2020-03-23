@@ -47,8 +47,7 @@ const server = () => {
 	], series(jsTask2));
 
 	watch([
-		"src/**.pug",
-		"src/_components/**/**.pug"
+		"src/**/**.pug"
 	], series(pugTask));
 
 	watch([
@@ -61,9 +60,9 @@ const server = () => {
 
 
 	watch([
+		"_vendors.json",
 		"vendors/**/**.css",
 		"vendors/**/**.js",
-		"_vendors.json"
 	], parallel(jsCore, cssCore));
 
 	watch([

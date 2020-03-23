@@ -1,45 +1,54 @@
 import {
 	series,
+	parallel
 } from "gulp";
 
 // Import tasks
 import {
 	server
-} from "./.tasks/server";
+} from "./_tasks/server";
 import {
 	jsTask,
 	jsTask2
-} from "./.tasks/script";
+} from "./_tasks/script";
 import {
 	pugTask
-} from "./.tasks/html";
+} from "./_tasks/html";
 import {
 	cssTask
-} from "./.tasks/css";
+} from "./_tasks/css";
 import {
 	jsCore
-} from "./.tasks/core-js";
+} from "./_tasks/core-js";
 import {
 	cssCore
-} from "./.tasks/core-css";
+} from "./_tasks/core-css";
 import {
 	cleanDist
-} from "./.tasks/clean";
+} from "./_tasks/clean";
 import {
+	copyFavicon,
 	copyFonts,
 	copyAssets
-} from "./.tasks/copy";
+} from "./_tasks/copy";
 
 
 exports.default = series(
 	cleanDist,
-	copyFonts,
-	copyAssets,
-	jsCore,
-	cssCore,
-	cssTask,
-	jsTask,
-	jsTask2,
+	parallel(
+		copyFavicon,
+		copyFonts,
+		copyAssets,
+	),
+	parallel(
+		cssCore,
+		jsCore,
+	),
+	parallel(
+		cssTask,
+		jsTask,
+		jsTask2,
+	),
 	pugTask,
 	server,
-)
+);

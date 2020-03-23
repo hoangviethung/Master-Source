@@ -1,10 +1,4 @@
 module.exports = class Mapping {
-	mobileNode;
-	desktopNode;
-	mobileMethod;
-	desktopMethod;
-	bpListener;
-	selectorNode;
 
 	constructor(selector, option) {
 		this.selector = selector;
@@ -15,7 +9,7 @@ module.exports = class Mapping {
 		this.breakpoint = option.breakpoint ? option.breakpoint : 1025;
 		this.selectorNode = document.querySelector(this.selector);
 		this.watch();
-	};
+	}
 
 	method(destinationSelector) {
 		const destinationNode = document.querySelector(destinationSelector);
@@ -34,22 +28,22 @@ module.exports = class Mapping {
 				destinationNode.prepend(_this.selectorNode);
 			},
 		};
-	};
+	}
 
 	run(method, destinationSelector) {
-		if (method === 'insertBefore') {
+		if (method === "insertBefore") {
 			return this.method(destinationSelector).insertBefore();
 		}
-		if (method === 'insertAfter') {
+		if (method === "insertAfter") {
 			return this.method(destinationSelector).insertAfter();
 		}
-		if (method === 'appendTo') {
+		if (method === "appendTo") {
 			return this.method(destinationSelector).appendTo();
 		}
-		if (method === 'prependTo') {
+		if (method === "prependTo") {
 			return this.method(destinationSelector).prependTo();
 		}
-	};
+	}
 
 	watch() {
 		this.bpListener = window.matchMedia(`(min-width: ${this.breakpoint}px)`);
@@ -62,12 +56,12 @@ module.exports = class Mapping {
 		};
 		if (!this.selectorNode) {
 			return (() => {
-				console.log('Selector not found');
+				console.log("Selector not found");
 			})();
 		}
 		return (() => {
 			checkWindowSize(this.bpListener);
 			this.bpListener.addListener(checkWindowSize);
 		})();
-	};
-}
+	}
+};

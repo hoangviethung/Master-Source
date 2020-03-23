@@ -1,3 +1,5 @@
-@import '_layout/main';
-@import 'abstracts/main';
-@import 'globals/main';
+@import '_abstracts/main';
+@import '_globals/main';
+@import '_layouts/main';
+
+@import 'pages/index/main'
