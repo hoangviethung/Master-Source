@@ -5,7 +5,7 @@
 	bottom: 0;
 	left: 0;
 	z-index: 99999;
-	transition: 1s ease;
+	transition: all .5s ease-in-out;
 	background-color: #ffffff;
 
 	.loading-wrapper {

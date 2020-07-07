@@ -1,9 +1,20 @@
-import Cookie from "./lib/Cookie";
-import Loading from "./lib/Loading";
-import getSVG from "./lib/GetSVG";
+import {
+	getSVGs,
+	Loading
+} from './util/utilities';
+import Cookie from './lib/Cookie';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 	Cookie();
-	getSVG();
+	getSVGs();
 	Loading();
 });
+
+document.addEventListener('DOMContentLoaded', () => {});
+
+
+
+// CHECK FORM VALID
+
+// if ($("form").valid() === true) {}
+// console.log('Kết quả kiểm tra điều kiện là:' + ' ' + $(".block-send-mail form").valid());

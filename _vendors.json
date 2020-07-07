@@ -2,10 +2,13 @@
 	"fonts": [
 		"src/fonts/**"
 	],
+
 	"js": [
 		"node_modules/jquery/dist/jquery.js",
-		"node_modules/swiper/js/swiper.js"
+		"node_modules/swiper/js/swiper.js",
+		"node_modules/lazysizes/lazysizes.js"
 	],
+
 	"css": [
 		"node_modules/swiper/css/swiper.css"
 	]

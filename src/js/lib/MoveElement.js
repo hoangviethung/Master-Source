@@ -1,5 +1,4 @@
-module.exports = class Mapping {
-
+export default class Mapping {
 	constructor(selector, option) {
 		this.selector = selector;
 		this.mobileMethod = option.mobileMethod;
@@ -16,10 +15,16 @@ module.exports = class Mapping {
 		const _this = this;
 		return {
 			insertBefore() {
-				destinationNode.parentNode.insertBefore(_this.selectorNode, destinationNode.previousSibling);
+				destinationNode.parentNode.insertBefore(
+					_this.selectorNode,
+					destinationNode.previousSibling
+				);
 			},
 			insertAfter() {
-				destinationNode.parentNode.insertBefore(_this.selectorNode, destinationNode.nextSibling);
+				destinationNode.parentNode.insertBefore(
+					_this.selectorNode,
+					destinationNode.nextSibling
+				);
 			},
 			appendTo() {
 				destinationNode.appendChild(_this.selectorNode);
@@ -31,22 +36,24 @@ module.exports = class Mapping {
 	}
 
 	run(method, destinationSelector) {
-		if (method === "insertBefore") {
+		if (method === 'insertBefore') {
 			return this.method(destinationSelector).insertBefore();
 		}
-		if (method === "insertAfter") {
+		if (method === 'insertAfter') {
 			return this.method(destinationSelector).insertAfter();
 		}
-		if (method === "appendTo") {
+		if (method === 'appendTo') {
 			return this.method(destinationSelector).appendTo();
 		}
-		if (method === "prependTo") {
+		if (method === 'prependTo') {
 			return this.method(destinationSelector).prependTo();
 		}
 	}
 
 	watch() {
-		this.bpListener = window.matchMedia(`(min-width: ${this.breakpoint}px)`);
+		this.bpListener = window.matchMedia(
+			`(min-width: ${this.breakpoint}px)`
+		);
 		const checkWindowSize = (bp) => {
 			if (bp.matches) {
 				this.run(this.desktopMethod, this.desktopNode);
@@ -56,7 +63,7 @@ module.exports = class Mapping {
 		};
 		if (!this.selectorNode) {
 			return (() => {
-				console.log("Selector not found");
+				console.log('Selector not found');
 			})();
 		}
 		return (() => {
@@ -64,4 +71,4 @@ module.exports = class Mapping {
 			this.bpListener.addListener(checkWindowSize);
 		})();
 	}
-};
+}
