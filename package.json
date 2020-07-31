@@ -76,11 +76,13 @@
 		"vinyl-source-stream": "^2.0.0"
 	},
 	"dependencies": {
+		"@fancyapps/fancybox": "^3.5.7",
 		"fancybox": "^3.0.1",
 		"image-map-resizer": "^1.0.10",
 		"jquery": "^3.4.1",
 		"lazysizes": "^5.2.0",
 		"pixi.js": "^5.2.1",
+		"smooth-scrollbar": "^8.5.2",
 		"swiper": "^5.3.6"
 	},
 	"prettier": {

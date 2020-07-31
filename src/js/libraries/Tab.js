@@ -3,10 +3,10 @@ export default class Tab {
 		this.selector = document.querySelector(selector);
 		if (this.selector) {
 			this.navigationItems = Array.from(
-				this.selector.querySelectorAll('[toggle-for]')
+				this.selector.querySelectorAll("[toggle-for]"),
 			);
 			this.contentList = Array.from(
-				this.selector.querySelectorAll('[tab-id]')
+				this.selector.querySelectorAll("[tab-id]"),
 			);
 			this.init();
 		}
@@ -14,33 +14,33 @@ export default class Tab {
 
 	changeTabWhenClicked() {
 		this.navigationItems.forEach((element, index) => {
-			element.addEventListener('click', (e) => {
+			element.addEventListener("click", (e) => {
 				e.preventDefault();
-				const tabTarget = element.attributes['toggle-for'].value;
+				const tabTarget = element.attributes["toggle-for"].value;
 				const targetDOM = Array.from(
-					this.selector.querySelectorAll(`[tab-id='${tabTarget}']`)
+					this.selector.querySelectorAll(`[tab-id='${tabTarget}']`),
 				);
 				this.navigationItems.forEach((eleClicked, eleClickedIndex) => {
 					if (eleClickedIndex != index) {
-						eleClicked.classList.remove('active');
+						eleClicked.classList.remove("active");
 					}
 				});
 				this.contentList.forEach((tabContentElement) => {
 					if (
-						tabContentElement.attributes['tab-id'].value !=
+						tabContentElement.attributes["tab-id"].value !=
 						tabTarget
 					) {
-						tabContentElement.style.display = 'none';
-						tabContentElement.classList.remove('show');
+						tabContentElement.style.display = "none";
+						tabContentElement.classList.remove("show");
 					}
 				});
-				element.classList.add('active');
+				element.classList.add("active");
 				targetDOM.forEach((item) => {
-					item.style.display = 'block';
+					item.style.display = "block";
 				});
 				setTimeout(() => {
 					targetDOM.forEach((item) => {
-						item.classList.add('show');
+						item.classList.add("show");
 					});
 				}, 50);
 			});

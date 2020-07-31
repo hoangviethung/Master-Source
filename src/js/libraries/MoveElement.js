@@ -17,13 +17,13 @@ export default class Mapping {
 			insertBefore() {
 				destinationNode.parentNode.insertBefore(
 					_this.selectorNode,
-					destinationNode.previousSibling
+					destinationNode.previousSibling,
 				);
 			},
 			insertAfter() {
 				destinationNode.parentNode.insertBefore(
 					_this.selectorNode,
-					destinationNode.nextSibling
+					destinationNode.nextSibling,
 				);
 			},
 			appendTo() {
@@ -36,23 +36,23 @@ export default class Mapping {
 	}
 
 	run(method, destinationSelector) {
-		if (method === 'insertBefore') {
+		if (method === "insertBefore") {
 			return this.method(destinationSelector).insertBefore();
 		}
-		if (method === 'insertAfter') {
+		if (method === "insertAfter") {
 			return this.method(destinationSelector).insertAfter();
 		}
-		if (method === 'appendTo') {
+		if (method === "appendTo") {
 			return this.method(destinationSelector).appendTo();
 		}
-		if (method === 'prependTo') {
+		if (method === "prependTo") {
 			return this.method(destinationSelector).prependTo();
 		}
 	}
 
 	watch() {
 		this.bpListener = window.matchMedia(
-			`(min-width: ${this.breakpoint}px)`
+			`(min-width: ${this.breakpoint}px)`,
 		);
 		const checkWindowSize = (bp) => {
 			if (bp.matches) {
@@ -63,7 +63,7 @@ export default class Mapping {
 		};
 		if (!this.selectorNode) {
 			return (() => {
-				console.log('Selector not found');
+				console.log("Selector not found");
 			})();
 		}
 		return (() => {
