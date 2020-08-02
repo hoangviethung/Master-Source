@@ -12,17 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		slideClass: ".fp-slide",
 		navigation: true,
 		on: {
+			// event is fired before slide start transition
 			beforeSlideChange: function (currentSlide, nextSlide, currentIndex, nextIndex) {
 				console.log(currentSlide, nextSlide, currentIndex, nextIndex);
 			},
+			// event is fired after slide end transition
 			afterSlideChange: function (currentSlide, currentIndex) {
 				console.log(currentSlide, currentIndex);
 			},
 		},
 	});
 
-	// get current index of fullpage
+	// method get current index of fullpage
 	fp.getIndex();
-	// allow or not allow scroll to slide fullpage: true = allow, false = not allow
+	// method allow or not allow scroll to slide fullpage: true = allow, false = not allow
 	fp.scroll(true);
 });
