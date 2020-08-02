@@ -1,12 +1,14 @@
 export default class Fullpage {
 	slidesLength;
-	opts = {};
 	container;
 	prevEl;
 	nextEl;
 	navigationsWrapper;
-	slides;
+	slides = [];
+	titles = [];
+	opts = {};
 	afterChangeSlide;
+	beforeSlideChange;
 	state = {
 		currentIndex: 0,
 		nextIndex: 0,
@@ -26,6 +28,12 @@ export default class Fullpage {
 		if (typeof opts.on.afterSlideChange == "function") {
 			this.afterSlideChange = opts.on.afterSlideChange;
 		}
+		if (typeof opts.on.beforeSlideChange == "function") {
+			this.beforeSlideChange = opts.on.beforeSlideChange;
+		}
+		this.slides.forEach((slide) => {
+			this.titles.push(slide.getAttribute("fp-title"));
+		});
 		this.slidesLength = this.slides.length;
 		this.init();
 	}
@@ -50,9 +58,9 @@ export default class Fullpage {
 			this.navigationsWrapper.classList.add("fp-navigation");
 			let navigationItemsString = "";
 			for (let i = 0; i < this.slidesLength; i++) {
-				navigationItemsString += `<div class="fp-nav-item" fp-target=${i}><span>${
+				navigationItemsString += `<div class="fp-nav-item" fp-target=${i}><span class="fp-number">${
 					i + 1
-				}</span></div>`;
+				}</span><span class="fp-title">${this.titles[i]}</span></div>`;
 			}
 			this.navigationsWrapper.innerHTML = navigationItemsString;
 			this.container.append(this.navigationsWrapper);
@@ -165,6 +173,14 @@ export default class Fullpage {
 
 	changeSlide() {
 		if (this.state.currentIndex != this.state.nextIndex) {
+			if (typeof this.beforeSlideChange == "function") {
+				this.beforeSlideChange(
+					this.slides[this.state.currentIndex],
+					this.slides[this.state.nextIndex],
+					this.state.currentIndex,
+					this.state.nextIndex
+				);
+			}
 			const element = this.slides[this.state.nextIndex];
 			const prevElement = this.slides[this.state.currentIndex];
 			let start;
@@ -205,13 +221,30 @@ export default class Fullpage {
 					this.state.currentIndex = this.state.nextIndex;
 					this.setStateForButtons();
 					this.autoChangeNavigationOnSlide();
-					this.afterSlideChange(
-						this.slides[this.state.currentIndex],
-						this.state.currentIndex
-					);
+
+					if (typeof this.afterSlideChange == "function") {
+						this.afterSlideChange(
+							this.slides[this.state.currentIndex],
+							this.state.currentIndex
+						);
+					}
 				}
 			};
 			window.requestAnimationFrame(slide);
 		}
+	}
+
+	// method
+	slideTo(i) {
+		this.state.nextIndex = Number(i);
+		this.changeSlide();
+	}
+
+	getIndex() {
+		return this.state.currentIndex;
+	}
+
+	scroll(canScroll) {
+		this.state.canScroll = canScroll;
 	}
 }

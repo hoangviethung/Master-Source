@@ -63,7 +63,8 @@
 		border-radius: 50%;
 		background-color: red;
 		cursor: pointer;
-		span {
+		position: relative;
+		.fp-number {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -71,8 +72,27 @@
 			height: 20px;
 			color: white;
 		}
+		.fp-title {
+			position: absolute;
+			right: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+			margin-right: -15px;
+			padding-right: 10px;
+			white-space: nowrap;
+			opacity: 0;
+			transition: all .3s ease;
+		}
 		&.active {
 			background-color: black;
+		}
+		@media (min-width: 1025px) {
+			&:hover {
+				.fp-title {
+					margin-right: 0;
+					opacity: 1;
+				}
+			}
 		}
 	}
 }
