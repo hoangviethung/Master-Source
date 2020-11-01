@@ -1,0 +1,22 @@
+{
+  "files": ["./app/scripts/main.ts"],
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2020",
+    "lib": ["es2018", "dom"],
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "isolatedModules": false,
+    "jsx": "react",
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "noLib": false,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true
+  }
+}
