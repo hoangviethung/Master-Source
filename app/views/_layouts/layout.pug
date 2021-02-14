@@ -3,19 +3,27 @@ block var
 <!DOCTYPE html>
 html(lang="en")
 	head
-		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
-		block meta
-			include meta
-		block css
-			include css
-		title Document
-	body(class=bodyClass)
+		// *** META *** //
+		include meta
+		// *** CSS *** //
+		include css
+		// *** FAVICON *** //
+		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+		// *** TITLE *** //
+		title #{pageTitle}
+	body
+		// *** HEADER *** //
 		block header
 			include header
-		main(class=mainClass)
+		// *** MAIN *** //
+		main
 			block main
+			// *** PAGE NAME *** //
+			#page-verify(data-class=`${bodyClass}`)
+		// *** OVERLAY *** //
+		#overlay
+		// *** FOOTER *** //
 		block footer
 			include footer
-		block js
-			include js
+		// *** JS *** //
+		include js

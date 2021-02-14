@@ -1,0 +1,76 @@
+#overlay {
+	cursor: pointer;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba($color: #000000, $alpha: 0.8);
+	z-index: 550;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 500ms cubic-bezier(1, 0, 0, 1) 0ms,
+		left 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+	&.active {
+		opacity: 1;
+		pointer-events: visible;
+	}
+}
+
+.blur-up {
+	-webkit-filter: blur(0.5rem);
+	filter: blur(0.5rem);
+	transition: filter 400ms, -webkit-filter 400ms;
+	&.lazyloaded {
+		-webkit-filter: blur(0);
+		filter: blur(0);
+	}
+}
+
+.lcl {
+	overflow: hidden;
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+
+	&-1 {
+		-webkit-line-clamp: 1;
+	}
+
+	&-2 {
+		-webkit-line-clamp: 2;
+	}
+
+	&-3 {
+		-webkit-line-clamp: 3;
+	}
+
+	&-4 {
+		-webkit-line-clamp: 4;
+	}
+
+	&-5 {
+		-webkit-line-clamp: 5;
+	}
+}
+
+.pos-center-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.btn {
+	cursor: pointer;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.4rem;
+	font-weight: 700;
+	white-space: nowrap;
+	padding: 0.8rem 1.6rem;
+	transition: 0.3s all ease-in-out;
+	border-radius: 0.3rem;
+}

@@ -1,11 +1,7 @@
 extends views/_layouts/layout
 
 block var
-	- bodyClass = "body-style-1"
-	- mainClass = "main-style-1"
-
+	- bodyClass = "index-page"
+	- pageTitle = "Gold Smile"
 block main
-	p This is index page
-
-block append js
-	script(src="./js/custom.min.js")
+	include ./views/_index/i-1

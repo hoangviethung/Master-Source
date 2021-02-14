@@ -1,13 +1,15 @@
-import { series } from "gulp";
-import { render } from "./tasks/render";
-import { core } from "./tasks/core";
-import { clean } from "./tasks/clean";
-import { main } from "./tasks/main";
-import { serve } from "./tasks/serve";
-import { copyPublic } from "./tasks/copy";
+import { series } from 'gulp';
+import { render } from './@core/tasks/render';
+import { core } from './@core/tasks/core';
+import { clean } from './@core/tasks/clean';
+import { main } from './@core/tasks/main';
+import { serve } from './@core/tasks/serve';
+import { copyPublic } from './@core/tasks/copy';
 
 const cleanDist = () => {
-  return clean("_dist");
+	return clean('_dist');
 };
 
-export default series(cleanDist, copyPublic, render, core, main, serve);
+export const dev = series(cleanDist, copyPublic, core, main, render, serve);
+
+export const prod = series(cleanDist, copyPublic, core, main, render, serve);
